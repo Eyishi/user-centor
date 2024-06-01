@@ -2,13 +2,17 @@ spring:
   application:
     name: user-centor
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/yishi
     username: root
     password: 1234
+    #session失效时间
+  session:
+    timeout: 86400
 server:
-  port: 8080
-
+  port: 8099
+  servlet:
+    context-path: /api
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: false

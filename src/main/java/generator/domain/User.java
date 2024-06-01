@@ -1,7 +1,9 @@
-package com.yishi.usercentor.model.domain;
+package generator.domain;
 
-import com.baomidou.mybatisplus.annotation.*;
-
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
@@ -60,10 +62,6 @@ public class User implements Serializable {
     private Integer userStatus;
 
     /**
-     * 0普通用户，1管理员
-     */
-    private Integer userRole;
-    /**
      * 创建时间
      */
     private Date createTime;
@@ -73,12 +71,15 @@ public class User implements Serializable {
      */
     private Date updateTime;
 
+    /**
+     * 是否删除
+     */
+    private Integer isDelete;
 
     /**
-     * 是否删除,逻辑删除
+     * 用户的角色，0普通用户，1管理员
      */
-    @TableLogic
-    private Integer isDelete;
+    private Integer userRole;
 
     /**
      * 星球编号
@@ -87,6 +88,4 @@ public class User implements Serializable {
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
-
-
 }
